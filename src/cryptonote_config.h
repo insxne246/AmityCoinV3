@@ -164,8 +164,8 @@ namespace config
     uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x1bf3c9; //amit
     uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x5cd49; //aint
     uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x29054a; //asub
-    uint16_t const P2P_DEFAULT_PORT = 41018;
-    uint16_t const RPC_DEFAULT_PORT = 51018;
+    uint16_t const P2P_DEFAULT_PORT = 11245;
+    uint16_t const RPC_DEFAULT_PORT = 11246;
     uint16_t const ZMQ_RPC_DEFAULT_PORT = 55113;
     boost::uuids::uuid const NETWORK_ID = {{0x42, 0x38, 0xB1, 0x75, 0x01, 0x82, 0x16, 0x21, 0x17, 0x31, 0xB1, 0xA1, 0x61, 0x04, 0x41, 0x52}};
     std::string const GENESIS_TX = 
@@ -177,10 +177,7 @@ namespace config
     std::string const MIN_VERSION    = "0.0.0.1";
     
     std::vector<std::string> const seed_nodes = { 
-        "51.75.92.73:41018", // GERMANY
-        "54.39.178.95:41018", // CANADA
-        "3.17.204.129:41018", // USA
-        "3.0.147.172:41018" // SINGAPORE
+        
     };
 
     static const hard_fork hard_forks[] = {
@@ -215,8 +212,7 @@ namespace config
         std::string const MIN_VERSION    = "0.0.0.1";
 
         std::vector<std::string> const seed_nodes = {
-            "18.216.156.140:21111",
-            "18.220.89.44:21111"
+        
          };
 
         static const hard_fork hard_forks[] = {
