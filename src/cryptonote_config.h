@@ -1,3 +1,4 @@
+// Copyright (c) 2017-2019, The Amity Project 
 // Copyright (c) 2017-2018, The NERVA Project
 // Copyright (c) 2017-2018, The Masari Project
 // Copyright (c) 2014-2018, The Monero Project
@@ -57,9 +58,27 @@
 #define BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW               12
 #define CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT              60*5
 
-#define BLOCK_REWARD                                    ((uint64_t)186000000)         //186 amit
-#define GENESIS_BLOCK_REWARD                            ((uint64_t)26859932000000)    //26,859,932.000000 amit
-#define PER_KB_BASE_FEE                                 ((uint64_t)5000)              //0.005 amit                           
+//Below is the autistic block reward system lol
+#define BLOCK_REWARD_V1                                 ((uint64_t)11000000) //11,000
+#define BLOCK_REWARD_V2                                 ((uint64_t)10000000) //10,000
+#define BLOCK_REWARD_V3                                 ((uint64_t)9000000)  //9,000
+#define BLOCK_REWARD_V4                                 ((uint64_t)8000000)  //8,000
+#define BLOCK_REWARD_V5                                 ((uint64_t)7000000)  //7,000
+#define BLOCK_REWARD_V6                                 ((uint64_t)6000000)  //6,000
+#define BLOCK_REWARD_V7                                 ((uint64_t)5000000)  //5,000
+#define BLOCK_REWARD_V8                                 ((uint64_t)4000000)  //4,000
+#define BLOCK_REWARD_V9                                 ((uint64_t)3000000)  //3,000
+#define BLOCK_REWARD_V10                                ((uint64_t)2000000)  //2,000
+#define BLOCK_REWARD_V11                                ((uint64_t)1000000)  //1,000
+#define BLOCK_REWARD_V12                                ((uint64_t)750000)   //750
+#define BLOCK_REWARD_V13                                ((uint64_t)500000)   //500
+#define BLOCK_REWARD_V14                                ((uint64_t)300000)   //300
+#define BLOCK_REWARD_V15                                ((uint64_t)200000)   //200
+#define BLOCK_REWARD_V16                                ((uint64_t)100000)   //100
+#define BLOCK_REWARD_FINAL                              ((uint64_t)50000)    //50
+
+#define GENESIS_BLOCK_REWARD                            ((uint64_t)2500000000000000)    //2,500,000,000.000000 OSL
+#define PER_KB_BASE_FEE                                 ((uint64_t)5000)                //0.005 OSL                           
 
 #define CRYPTONOTE_REWARD_BLOCKS_WINDOW                 100
 #define CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE       300000
@@ -116,7 +135,7 @@
 
 //#define ALLOW_DEBUG_COMMANDS
 
-#define CRYPTONOTE_NAME                                 "amity"
+#define CRYPTONOTE_NAME                                 "oscillate"
 #define CRYPTONOTE_POOLDATA_FILENAME                    "poolstate.bin"
 #define CRYPTONOTE_BLOCKCHAINDATA_FILENAME              "data.mdb"
 #define CRYPTONOTE_BLOCKCHAINDATA_LOCK_FILENAME         "lock.mdb"
@@ -145,10 +164,10 @@ namespace config
     uint64_t const CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX = 0x1bf3c9; //amit
     uint64_t const CRYPTONOTE_PUBLIC_INTEGRATED_ADDRESS_BASE58_PREFIX = 0x5cd49; //aint
     uint64_t const CRYPTONOTE_PUBLIC_SUBADDRESS_BASE58_PREFIX = 0x29054a; //asub
-    uint16_t const P2P_DEFAULT_PORT = 41018;
-    uint16_t const RPC_DEFAULT_PORT = 51018;
-    uint16_t const ZMQ_RPC_DEFAULT_PORT = 37113;
-    boost::uuids::uuid const NETWORK_ID = {{0x42, 0x38, 0xB1, 0x75, 0x01, 0x82, 0x16, 0xA1, 0x61, 0x04, 0x41, 0x21, 0x17, 0x31, 0xB1, 0x52}};
+    uint16_t const P2P_DEFAULT_PORT = 11245;
+    uint16_t const RPC_DEFAULT_PORT = 11246;
+    uint16_t const ZMQ_RPC_DEFAULT_PORT = 55113;
+    boost::uuids::uuid const NETWORK_ID = {{0x42, 0x38, 0xB1, 0x75, 0x01, 0x82, 0x16, 0x21, 0x17, 0x31, 0xB1, 0xA1, 0x61, 0x04, 0x41, 0x52}};
     std::string const GENESIS_TX = 
     "01e80201ff000180bed285dd8d06026ca32c5a66b9d7cb7cb76dbea605fffe5f501ddec0d0dec193c5fea177589a8d21012137037f61b653a39be231017497f553868213197f35d74761474c30b66a99b800";
 
@@ -158,15 +177,28 @@ namespace config
     std::string const MIN_VERSION    = "0.0.0.1";
     
     std::vector<std::string> const seed_nodes = { 
-        "51.75.92.73:41018", // GERMANY
-        "54.39.178.95:41018", // CANADA
-        "3.17.204.129:41018", // USA
-        "3.0.147.172:41018" // SINGAPORE
+        
     };
 
     static const hard_fork hard_forks[] = {
         { 1,   1},
         { 2, 550},
+        { 3, 2000000},
+        { 4, 4000000},
+        { 5, 6000000},
+        { 6, 7000000},
+        { 7, 8000000},
+        { 8, 9000000},
+        { 9, 10000000},
+        { 10, 12000000},
+        { 11, 13000000},
+        { 12, 14000000},
+        { 13, 14050000},
+        { 14, 14100000},
+        { 15, 14150000},
+        { 16, 14200000},
+        { 17, 14250000},
+        { 18, 14300000},
     };
 
     namespace testnet
@@ -180,8 +212,7 @@ namespace config
         std::string const MIN_VERSION    = "0.0.0.1";
 
         std::vector<std::string> const seed_nodes = {
-            "18.216.156.140:21111",
-            "18.220.89.44:21111"
+        
          };
 
         static const hard_fork hard_forks[] = {

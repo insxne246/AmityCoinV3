@@ -1,3 +1,4 @@
+// Copyright (c) 2018-2019, The Amity Project
 // Copyright (c) 2018-2019, The NERVA Project
 // Copyright (c) 2014-2018, The Monero Project
 // 

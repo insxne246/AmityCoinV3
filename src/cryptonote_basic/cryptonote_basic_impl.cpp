@@ -1,4 +1,5 @@
 // Copyright (c) 2018-2019, The Amity Project
+// Copyright (c) 2018-2019, The NERVA Project
 // Copyright (c) 2014-2019, The Monero Project
 //
 // All rights reserved.
@@ -85,18 +86,52 @@ namespace cryptonote {
   //-----------------------------------------------------------------------------------------------
   bool get_block_reward(size_t median_size, uint64_t already_generated_coins, uint64_t &reward, uint8_t version)
   {
-    //todo: block reward changes go here
-    // if (version >= 2)
-    //    reward = BLOCK_REWARD_V2;
-    // else
-    //    reward = BLOCK_REWARD;
-
+    //TODO: Block Reward Changes
+    //if (version >= 3)
+    //  reward = BLOCK_REWARD_V3;
+    //  else if (version >= 2)
+    //  reward = BLOCK_REWARD_V2;
+    //  else
+    //  reward = BLOCK_REWARD;
     if (median_size > 0 && already_generated_coins < GENESIS_BLOCK_REWARD) {
       reward = GENESIS_BLOCK_REWARD;
       return true;
     }
 
-    reward = BLOCK_REWARD;
+    if (version >= 1)
+      //reward = BLOCK_REWARD_FINAL;    //Block 14,300,000
+      //else if (version >= 17) 
+      //reward = BLOCK_REWARD_V16;      //Block 14,250,000
+      //else if (version >= 16)
+      //reward = BLOCK_REWARD_V15;      //Block 14,200,000
+      //else if (version >= 15)
+      //reward = BLOCK_REWARD_V14;      //Block 14,150,000
+      //else if (version >= 14)
+      //reward = BLOCK_REWARD_V13;      //Block 14,100,000
+      //else if (version >= 13)
+      //reward = BLOCK_REWARD_V12;      //Block 14,050,000
+      //else if (version >= 12)
+      //reward = BLOCK_REWARD_V11;      //Block 14,000,000
+      //else if (version >= 11)
+      //reward = BLOCK_REWARD_V10;      //Block 13,000,000
+      //else if (version >= 10)
+      //reward = BLOCK_REWARD_V9;       //Block 12,000,000
+      //else if (version >= 9)
+      //reward = BLOCK_REWARD_V8;       //Block 10,000,000
+      //else if (version >= 8)
+      //reward = BLOCK_REWARD_V7;       //Block 9,000,000
+      //else if (version >= 7)
+      //reward = BLOCK_REWARD_V6;       //Block 8,000,000
+      //else if (version >= 6)
+      //reward = BLOCK_REWARD_V5;       //Block 7,000,000
+      //else if (version >= 5)
+      //reward = BLOCK_REWARD_V4;       //Block 6,000,000
+      //else if (version >= 4)          
+      //reward = BLOCK_REWARD_V3;       //Block 4,000,000
+      //else if (version >= 3)          
+      //reward = BLOCK_REWARD_V2;       //Block 2,000,000
+      //else      
+      reward = BLOCK_REWARD_V1;  
 
     return true;
   }
